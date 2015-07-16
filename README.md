@@ -7,12 +7,13 @@
 
 ## Installation
 
-CMPGeniusPicker is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'CMPGeniusPicker', :git => 'git@github.com:qeychon/CMPGeniusPicker.git'
 ```
+or copy the sources files in to the project folder.
+
 ## Usage
 
 #### 1. Modify storyboard 
