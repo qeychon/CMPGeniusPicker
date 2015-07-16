@@ -1,9 +1,5 @@
 # CMPGeniusPicker
 
-[![Version](https://img.shields.io/cocoapods/v/CMPGeniusPicker.svg?style=flat)](http://cocoapods.org/pods/CMPGeniusPicker)
-[![License](https://img.shields.io/cocoapods/l/CMPGeniusPicker.svg?style=flat)](http://cocoapods.org/pods/CMPGeniusPicker)
-[![Platform](https://img.shields.io/cocoapods/p/CMPGeniusPicker.svg?style=flat)](http://cocoapods.org/pods/CMPGeniusPicker)
-
 # Demo
 
 ![CMPGeniusPicker](https://raw.githubusercontent.com/qeychon/CMPGeniusPicker/master/demo.gif)
@@ -20,7 +16,7 @@ CMPGeniusPicker is available through [CocoaPods](http://cocoapods.org). To insta
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "CMPGeniusPicker"
+pod 'CMPGeniusPicker', :git => 'git@github.com:qeychon/CMPGeniusPicker.git'
 ```
  
 
