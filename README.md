@@ -27,7 +27,7 @@ Then you have to implement the `Delegate` and `DataSource` of the class `CMPGeni
 @end
 ```
 
-### 3. DataSource
+#### 3. DataSource
 With the help of the `DataSource` the content of CMPGeniusPicker is defined. The `CMPGeniusPickerView` has steps and items. A step contains several items. It will automatically switch to the next level, if an item has been selected.
 Therefore, the following data must be defined:
 
@@ -53,7 +53,7 @@ In addition, the appearance of the items can be defined. In each stage, an item 
 ```
 The definition are optional.
 
-### 4. Delegate
+#### 4. Delegate
 There exists two events:
 
 + The selection of the item.
@@ -64,7 +64,7 @@ There exists two events:
 @optional
 - (void)nextStepDidSelect: (NSInteger)step;
 ```
-### 5. Additional
+#### 5. Additional
 The change to the respective stages is performed automatically after selecting an item. However, it can be changed directly on the stage. 
 With the following functions:
 
