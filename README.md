@@ -4,11 +4,6 @@
 
 ![CMPGeniusPicker](https://raw.githubusercontent.com/qeychon/CMPGeniusPicker/master/demo.gif)
 
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
 
 ## Installation
 
@@ -18,6 +13,8 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'CMPGeniusPicker', :git => 'git@github.com:qeychon/CMPGeniusPicker.git'
 ```
+## Usage
+
  
 
 ## License
