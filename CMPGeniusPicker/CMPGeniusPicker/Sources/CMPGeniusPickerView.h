@@ -56,6 +56,6 @@ typedef void (^CompletionHandler)(BOOL);
 - (void)reloadWithAnimation: (CMPGeniusAnimation)animation;
 - (void)backStep;
 - (void)nextStep;
-- (void)gotStep: (NSInteger)step;
+- (void)goToStep: (NSInteger)step;
 
 @end

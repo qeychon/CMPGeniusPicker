@@ -439,7 +439,7 @@ CGFloat const kAnimationDuration = 0.4;
  *
  *  @param step The desired step.
  */
-- (void)gotStep: (NSInteger)step {
+- (void)goToStep: (NSInteger)step {
     if ([_dataSource numberOfSteps] > step && _currentStep != step && step >= 0) {
         _currentStep = step;
         self.lastMainView.transform = CGAffineTransformMakeScale(1.0, 1.0);
