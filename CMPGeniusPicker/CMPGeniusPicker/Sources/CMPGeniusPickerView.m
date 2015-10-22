@@ -43,12 +43,14 @@ CGFloat const kAnimationDuration = 0.4;
 @property (nonatomic) NSArray *itemViewPositions;
 @property (nonatomic) NSDictionary *stepPaths;
 @property (nonatomic) CMPStepPath *selectedPath;
+@property (nonatomic) BOOL isTouched;
 
 @end
 
 @implementation CMPGeniusPickerView
 
 - (void)drawRect:(CGRect)rect {
+    self.isTouched = true;
     //// General Declarations
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -352,6 +354,10 @@ CGFloat const kAnimationDuration = 0.4;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
     CGPoint tLocation =[[touches anyObject] locationInView:self];
     [self selectItemOnLocation:tLocation];
+    if (_isTouched && [_delegate respondsToSelector:@selector(touchDidStart)]) {
+        [_delegate touchDidStart];
+        self.isTouched = false;
+    }
 }
 
 /**
@@ -390,6 +396,10 @@ CGFloat const kAnimationDuration = 0.4;
         if ([_delegate respondsToSelector:@selector(nextStepDidSelect:)]) {
             [_delegate nextStepDidSelect:_currentStep];
         }
+    }
+    if ([_delegate respondsToSelector:@selector(touchDidEnd)]) {
+        [_delegate touchDidEnd];
+        self.isTouched = true;
     }
 }
 

@@ -69,7 +69,7 @@
 
 #pragma mark - Delegate
 
-- (void)itemDidSelectAtStepPath:(CMPStepPath *)stepPath {
+- (void)itemDidSelectAtStepPath: (CMPStepPath *)stepPath {
     if ([stepPath step] == 0) {
         self.firstTitle.text = [NSString stringWithFormat:@"%li", [stepPath item]];
     } else if ([stepPath step] == 1) {
@@ -82,6 +82,14 @@
 
 - (void)nextStepDidSelect:(NSInteger)step {
     NSLog(@"next Step!");
+}
+
+- (void)touchDidEnd {
+    NSLog(@"Touched did end");
+}
+
+- (void)touchDidStart {
+    NSLog(@"Touched did start");
 }
 
 - (IBAction)back:(UIButton *)sender {

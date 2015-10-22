@@ -42,6 +42,8 @@ typedef NS_ENUM(NSInteger, CMPGeniusAnimation) {
 - (void)itemDidSelectAtStepPath: (CMPStepPath *)stepPath;
 @optional
 - (void)nextStepDidSelect: (NSInteger)step;
+- (void)touchDidStart;
+- (void)touchDidEnd;
 
 @end
 
