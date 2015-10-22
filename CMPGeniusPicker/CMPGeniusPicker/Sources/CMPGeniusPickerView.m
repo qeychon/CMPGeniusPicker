@@ -59,7 +59,7 @@ CGFloat const kAnimationDuration = 0.4;
     NSShadow* shadow = [[NSShadow alloc] init];
     [shadow setShadowColor: UIColor.blackColor];
     [shadow setShadowOffset: CGSizeMake(0.1, -0.1)];
-    [shadow setShadowBlurRadius: 6];
+    [shadow setShadowBlurRadius: 4];
     
     //// Variable Declarations
     CGFloat borderWidth = rect.size.width - (kBorder * 2);
@@ -360,6 +360,7 @@ CGFloat const kAnimationDuration = 0.4;
  *  @param tLocation The position of the touch point.
  */
 - (void)selectItemOnLocation: (CGPoint)tLocation {
+    self.selectedPath = nil;
     for (int i = 0; i < [_itemViewPositions count]; i++) {
         CGRect frame = [[_itemViewPositions objectAtIndex:i] CGRectValue];
         CGFloat minX = frame.origin.x;
@@ -370,16 +371,13 @@ CGFloat const kAnimationDuration = 0.4;
             CGFloat xPos = frame.origin.x + (frame.size.width / 2) - (self.markerView.frame.size.width / 2);
             CGFloat yPos = frame.origin.y + (frame.size.height / 2) - (self.markerView.frame.size.height / 2);
             CGRect newFrame = CGRectMake(xPos, yPos, self.markerView.frame.size.width, self.markerView.frame.size.height);
-            if (self.markerView.frame.origin.x != newFrame.origin.x && self.markerView.frame.origin.y != newFrame.origin.y) {
-                self.markerView.frame = newFrame;
-                self.selectedPath = [_stepPaths valueForKey:[NSString stringWithFormat:PATH,
-                                                             frame.origin.x, frame.origin.y]];
-                if ([_delegate respondsToSelector:@selector(itemDidSelectAtStepPath:)]) {
-                    [_delegate itemDidSelectAtStepPath:_selectedPath];
-                }
-                [self drawMarkerLine];
+            self.markerView.frame = newFrame;
+            self.selectedPath = [_stepPaths valueForKey:[NSString stringWithFormat:PATH,
+                                                         frame.origin.x, frame.origin.y]];
+            if ([_delegate respondsToSelector:@selector(itemDidSelectAtStepPath:)]) {
+                [_delegate itemDidSelectAtStepPath:_selectedPath];
             }
-            return;
+            [self drawMarkerLine];
         }
     }
 }
@@ -387,7 +385,7 @@ CGFloat const kAnimationDuration = 0.4;
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     CGPoint tLocation =[[touches anyObject] locationInView:self];
     [self selectItemOnLocation:tLocation];
-    if (_currentStep < [_dataSource numberOfSteps]) {
+    if (_selectedPath && _currentStep < [_dataSource numberOfSteps]) {
         [self nextStep];
         if ([_delegate respondsToSelector:@selector(nextStepDidSelect:)]) {
             [_delegate nextStepDidSelect:_currentStep];

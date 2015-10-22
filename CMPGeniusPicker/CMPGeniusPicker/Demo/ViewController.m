@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.selection = [NSMutableArray array];
-    [self.selection addObject:[NSNumber numberWithInteger:3]];
+    [self.selection addObject:[NSNumber numberWithInteger:2]];
     [self.selection addObject:[NSNumber numberWithInteger:12]];
     [self.selection addObject:[NSNumber numberWithInteger:32]];
     
