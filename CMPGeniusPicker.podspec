@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = { "qeychon"  => "qeychon@compience.com" }
   s.platform     = :ios, "7.1"
-  s.source       = { :git => "https://github.com/qeychon/CMPGeniusPicker.git", :tag => "0.1.1" }
+  s.source       = { :git => "https://github.com/qeychon/CMPGeniusPicker.git", :tag => "0.1.2" }
   s.source_files  = "Classes", "CMPGeniusPicker/CMPGeniusPicker/Sources/**/*.{h,m}"
   s.requires_arc = true
 
