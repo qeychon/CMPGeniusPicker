@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "CMPGeniusPicker"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Fully configurable picker, which can be used as a time selection."
   s.homepage     = "https://github.com/qeychon/CMPGeniusPicker"
   s.screenshots  = "https://raw.githubusercontent.com/qeychon/CMPGeniusPicker/master/demo.gif"
