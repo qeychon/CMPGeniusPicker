@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, CMPGeniusAnimation) {
 - (NSString *)itemTitleOfStepPath: (CMPStepPath *)stepPath;
 - (UIFont *)itemFontOfStepPath: (CMPStepPath *)stepPath;
 - (UIColor *)itemFontColorOfStepPath: (CMPStepPath *)stepPath;
+- (BOOL)selectableOfStepPath: (CMPStepPath *)stepPath;
 @end
 
 @protocol CMPGeniusPickerDelegate <NSObject>

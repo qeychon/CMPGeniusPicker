@@ -377,13 +377,22 @@ CGFloat const kAnimationDuration = 0.4;
             CGFloat xPos = frame.origin.x + (frame.size.width / 2) - (self.markerView.frame.size.width / 2);
             CGFloat yPos = frame.origin.y + (frame.size.height / 2) - (self.markerView.frame.size.height / 2);
             CGRect newFrame = CGRectMake(xPos, yPos, self.markerView.frame.size.width, self.markerView.frame.size.height);
-            self.markerView.frame = newFrame;
-            self.selectedPath = [_stepPaths valueForKey:[NSString stringWithFormat:PATH,
+            
+            CMPStepPath *path = [_stepPaths valueForKey:[NSString stringWithFormat:PATH,
                                                          frame.origin.x, frame.origin.y]];
-            if ([_delegate respondsToSelector:@selector(itemDidSelectAtStepPath:)]) {
-                [_delegate itemDidSelectAtStepPath:_selectedPath];
+            if (![_dataSource respondsToSelector:@selector(selectableOfStepPath:)] || [_dataSource selectableOfStepPath:path]) {
+                self.markerView.frame = newFrame;
+                self.selectedPath = path;
+                
+                
+                if ([_delegate respondsToSelector:@selector(itemDidSelectAtStepPath:)]) {
+                    [_delegate itemDidSelectAtStepPath:_selectedPath];
+                }
+                [self drawMarkerLine];
             }
-            [self drawMarkerLine];
+            
+            
+            
         }
     }
 }

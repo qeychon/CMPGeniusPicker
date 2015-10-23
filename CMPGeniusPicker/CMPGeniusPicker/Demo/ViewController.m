@@ -67,6 +67,10 @@
     return [UIFont boldSystemFontOfSize:17];
 }
 
+- (BOOL)selectableOfStepPath:(CMPStepPath *)stepPath {
+    return !(stepPath.step == 1 && stepPath.item == 2);
+}
+
 #pragma mark - Delegate
 
 - (void)itemDidSelectAtStepPath: (CMPStepPath *)stepPath {
