@@ -39,7 +39,6 @@ CGFloat const kAnimationDuration = 0.4;
 @property (nonatomic) UIView *lastMainView;
 /// Layer
 @property (nonatomic) NSInteger numberOfStep;
-@property (nonatomic) NSInteger currentStep;
 @property (nonatomic) NSArray *itemViewPositions;
 @property (nonatomic) NSDictionary *stepPaths;
 @property (nonatomic) CMPStepPath *selectedPath;
@@ -377,14 +376,11 @@ CGFloat const kAnimationDuration = 0.4;
             CGFloat xPos = frame.origin.x + (frame.size.width / 2) - (self.markerView.frame.size.width / 2);
             CGFloat yPos = frame.origin.y + (frame.size.height / 2) - (self.markerView.frame.size.height / 2);
             CGRect newFrame = CGRectMake(xPos, yPos, self.markerView.frame.size.width, self.markerView.frame.size.height);
-            
             CMPStepPath *path = [_stepPaths valueForKey:[NSString stringWithFormat:PATH,
                                                          frame.origin.x, frame.origin.y]];
             if (![_dataSource respondsToSelector:@selector(selectableOfStepPath:)] || [_dataSource selectableOfStepPath:path]) {
                 self.markerView.frame = newFrame;
                 self.selectedPath = path;
-                
-                
                 if ([_delegate respondsToSelector:@selector(itemDidSelectAtStepPath:)]) {
                     [_delegate itemDidSelectAtStepPath:_selectedPath];
                 }

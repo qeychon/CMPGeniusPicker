@@ -55,6 +55,7 @@ typedef void (^CompletionHandler)(BOOL);
 @property (nonatomic, weak) id<CMPGeniusPickerDataSource> dataSource;
 @property (nonatomic, weak) id<CMPGeniusPickerDelegate> delegate;
 @property (nonatomic, strong) CompletionHandler completionHandler;
+@property (nonatomic) NSInteger currentStep;
 
 - (void)reloadWithAnimation: (CMPGeniusAnimation)animation;
 - (void)backStep;
